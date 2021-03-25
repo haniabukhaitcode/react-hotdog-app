@@ -12,25 +12,22 @@ class HotdogIngredient extends Component {
         ingredient = <div className={classes.BreadBottom}></div>;
         break;
       case "bread-top":
-        ingredient = (
-          <div className={classes.BreadTop}>
-            <div className={classes.Seeds1}></div>
-            <div className={classes.Seeds2}></div>
-          </div>
-        );
+        ingredient = <div className={classes.BreadTop}></div>;
         break;
-      case "meat":
-        ingredient = <div className={classes.Meat}></div>;
+      case "hotdogMeat":
+        ingredient = <div className={classes.HotdogMeat}></div>;
+        break;
+      case "mayonnaise":
+        ingredient = <div className={classes.Mayonnaise}></div>;
+        break;
+      case "mustard":
+        ingredient = <div className={classes.Mustard}></div>;
+        break;
+      case "ketchup":
+        ingredient = <div className={classes.Ketchup}></div>;
         break;
       case "cheese":
         ingredient = <div className={classes.Cheese}></div>;
-        break;
-      case "bacon":
-        ingredient = <div className={classes.Bacon}></div>;
-        break;
-      case "salad":
-        ingredient = <div className={classes.Salad}></div>;
-        break;
       default:
         ingredient = null;
     }

@@ -1,9 +1,8 @@
 import React from "react";
-
 import classes from "./Hotdog.css";
 import HotdogIngredient from "./HotdogIngredient/HotdogIngredient";
 
-const burger = (props) => {
+const hotdog = (props) => {
   let transformedIngredients = Object.keys(props.ingredients)
     .map((igKey) => {
       return [...Array(props.ingredients[igKey])].map((_, i) => {
@@ -16,8 +15,9 @@ const burger = (props) => {
   if (transformedIngredients.length === 0) {
     transformedIngredients = <p>Please start adding ingredients!</p>;
   }
+
   return (
-    <div className={classes.Burger}>
+    <div className={classes.Hotdog}>
       <HotdogIngredient type="bread-top" />
       {transformedIngredients}
       <HotdogIngredient type="bread-bottom" />
@@ -25,4 +25,4 @@ const burger = (props) => {
   );
 };
 
-export default burger;
+export default hotdog;
