@@ -61,7 +61,7 @@ class HotdogBuilder extends Component {
   render() {
     const disableInfo = { ...this.state.ingredients };
     for (let i in disableInfo) {
-      disableInfo[i] = disableInfo[i] <= 0;
+      disableInfo[i] = disableInfo[i] <= 0; //|| disableInfo[i] >= 2;
     }
 
     return (

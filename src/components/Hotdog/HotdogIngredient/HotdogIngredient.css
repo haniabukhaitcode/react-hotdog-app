@@ -1,57 +1,51 @@
 .BreadBottom {
-  height: 13%;
+  height: 18%;
   width: 90%;
   background: linear-gradient(#f08e4a, #e27b36);
-  border-radius: 10px 10px 30px 30px;
+  border-radius: 10px 10px 100px 100px;
   box-shadow: inset -15px 0 #f08e4a;
-  margin: 2% auto;
+  margin: -2% auto;
 }
 
 .BreadTop {
-  height: 13%;
+  height: 18%;
   width: 90%;
   background: linear-gradient(#f08e4a, #e27b36);
-  border-radius: 30px 30px 10px 10px;
+  border-radius: 100px 100px 10px 10px;
   box-shadow: inset -15px 0 #f08e4a;
-  margin: 2% auto;
+  margin-left: 5%;
+  margin-top: 2%;
+  margin-bottom: -2%;
   position: relative;
-}
-
-.HotdogMeat {
-  width: 90%;
-  height: 11%;
-  background: linear-gradient(#f13b2aca, #f13a2a);
-  margin: 2% auto;
-  border-radius: 30px;
 }
 
 .Mayonnaise {
   width: 90%;
-  height: 2%;
-  margin: 2% auto;
-  background: linear-gradient(#ececec, #ececec);
+  height: 5%;
+  margin: 1% auto;
+  background: linear-gradient(#ffffff, #ffffff);
   border-radius: 20px;
 }
 
 .ketchup {
-  width: 85%;
-  height: 2%;
-  margin: 2% auto;
-  background: linear-gradient(red, red);
+  width: 90%;
+  height: 5%;
+  margin: 1% auto;
+  background: linear-gradient(#ff0000, #810000);
   border-radius: 20px;
 }
 
 .Mustard {
-  width: 80%;
-  height: 2%;
+  width: 90%;
+  height: 5%;
   background: linear-gradient(yellow, yellow);
-  margin: 2% auto;
+  margin: 1% auto;
   border-radius: 20px;
 }
 .Cheese {
-  width: 80%;
-  height: 2%;
-  background: linear-gradient(black, black);
-  margin: 2% auto;
+  width: 90%;
+  height: 5%;
+  background: linear-gradient(#ff7b00, #ff7b00);
+  margin: 1% auto;
   border-radius: 20px;
 }
