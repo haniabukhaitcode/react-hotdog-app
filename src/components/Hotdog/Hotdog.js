@@ -17,10 +17,12 @@ const hotdog = (props) => {
   }
 
   return (
-    <div className={classes.Hotdog}>
-      <HotdogIngredient type="bread-top" />
-      <div className={classes.HotdogMeat}>{transformedIngredients}</div>
-      <HotdogIngredient type="bread-bottom" />
+    <div className={classes.container}>
+      <div className={classes.Hotdog}>
+        <HotdogIngredient type="bread-top" />
+        <div className={classes.HotdogMeat}>{transformedIngredients}</div>
+        <HotdogIngredient type="bread-bottom" />
+      </div>
     </div>
   );
 };
