@@ -6,7 +6,7 @@ const controls = [
   { label: "Cheese", type: "cheese" },
   { label: "Mayonnaise", type: "mayonnaise" },
   { label: "Mustard", type: "mustard" },
-  { label: "ketchup", type: "ketchup" },
+  { label: "Ketchup", type: "ketchup" },
 ];
 
 const buildControls = (props) => (
@@ -20,7 +20,8 @@ const buildControls = (props) => (
         label={ctrl.label}
         added={() => props.ingredientAdded(ctrl.type)}
         removed={() => props.ingredientRemoved(ctrl.type)}
-        disabled={props.disabled[ctrl.type]}
+        disabledLess={props.disabledLessInfo[ctrl.type]}
+        disabledExtra={props.disabledExtraInfo[ctrl.type]}
       />
     ))}
   </div>

@@ -59,9 +59,13 @@ class HotdogBuilder extends Component {
   };
 
   render() {
-    const disableInfo = { ...this.state.ingredients };
-    for (let i in disableInfo) {
-      disableInfo[i] = disableInfo[i] <= 0; //|| disableInfo[i] >= 2;
+    const disabledLessInfo = { ...this.state.ingredients };
+    for (let i in disabledLessInfo) {
+      disabledLessInfo[i] = disabledLessInfo[i] <= 0; //|| disableInfo[i] >= 2;
+    }
+    const disabledExtraInfo = { ...this.state.ingredients };
+    for (let i in disabledExtraInfo) {
+      disabledExtraInfo[i] = disabledExtraInfo[i] >= 2; //|| disableInfo[i] >= 2;
     }
 
     return (
@@ -72,7 +76,8 @@ class HotdogBuilder extends Component {
           ingredientRemoved={this.removeIngredientHandler}
           purchasable={this.state.purchasable}
           price={this.state.totalPrice}
-          disabled={disableInfo}
+          disabledLessInfo={disabledLessInfo}
+          disabledExtraInfo={disabledExtraInfo}
         />
       </Auxx>
     );

@@ -1,7 +1,7 @@
 .Hotdog {
   width: 100%;
   margin: auto;
-  max-height: 500px;
+  height: 500px;
   /* overflow: scroll; */
   text-align: center;
   font-weight: bold;
@@ -17,7 +17,7 @@
   border-radius: 100px;
 }
 
-@media (min-width: 500px) and (min-height: 400px) {
+@media (min-width: 500px) and (min-height: 100px) {
   .Hotdog {
     width: 350px;
     height: 300px;
