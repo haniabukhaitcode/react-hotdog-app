@@ -2,13 +2,14 @@ import React, { Component } from "react";
 
 import Auxx from "../../hoc/Auxx";
 import BuildControls from "../../components/Hotdog/BuildControls/BuildControls";
-import Burger from "../../components/Hotdog/Hotdog";
+import Hotdog from "../../components/Hotdog/Hotdog";
 
 const INGREDIENT_PRICES = {
   ketchup: 0.2,
   mustard: 0.2,
   mayonnaise: 0.2,
   hotdogMeat: 0.5,
+  cheese: 0.5,
 };
 
 class HotdogBuilder extends Component {
@@ -18,6 +19,7 @@ class HotdogBuilder extends Component {
       mustard: 0,
       mayonnaise: 0,
       hotdogMeat: 1,
+      cheese: 0,
     },
     totalPrice: 4,
   };
@@ -61,9 +63,10 @@ class HotdogBuilder extends Component {
     for (let i in disableInfo) {
       disableInfo[i] = disableInfo[i] <= 0;
     }
+
     return (
       <Auxx>
-        <Burger ingredients={this.state.ingredients} />
+        <Hotdog ingredients={this.state.ingredients} />
         <BuildControls
           ingredientAdded={this.addIngredientHandler}
           ingredientRemoved={this.removeIngredientHandler}

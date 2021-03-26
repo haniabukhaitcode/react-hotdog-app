@@ -33,7 +33,7 @@
   border-radius: 20px;
 }
 
-.Ketchup {
+.ketchup {
   width: 85%;
   height: 2%;
   margin: 2% auto;
@@ -45,6 +45,13 @@
   width: 80%;
   height: 2%;
   background: linear-gradient(yellow, yellow);
+  margin: 2% auto;
+  border-radius: 20px;
+}
+.Cheese {
+  width: 80%;
+  height: 2%;
+  background: linear-gradient(black, black);
   margin: 2% auto;
   border-radius: 20px;
 }
