@@ -19,7 +19,7 @@ const hotdog = (props) => {
   }
 
   return (
-    <div className={classes.container}>
+    <div className={classes.Container}>
       <div className={classes.Hotdog}>
         <HotdogIngredient type="bread-top" />
         <div className={classes.HotdogMeat}>{transformedIngredients}</div>

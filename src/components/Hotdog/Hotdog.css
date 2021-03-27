@@ -1,3 +1,11 @@
+.Container {
+  height: 379px;
+  /* overflow: scroll; */
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 10px;
+}
 .Hotdog {
   width: 100%;
   margin: auto;
