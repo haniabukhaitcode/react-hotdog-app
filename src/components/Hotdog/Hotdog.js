@@ -4,16 +4,18 @@ import HotdogIngredient from "./HotdogIngredient/HotdogIngredient";
 
 const hotdog = (props) => {
   let transformedIngredients = Object.keys(props.ingredients)
-    .map((igKey) => {
-      return [...Array(props.ingredients[igKey])].map((_, i) => {
-        return <HotdogIngredient key={igKey + i} type={igKey} />;
+    .map((ingredientKey) => {
+      return [...Array(props.ingredients[ingredientKey])].map((_, i) => {
+        return (
+          <HotdogIngredient key={ingredientKey + i} type={ingredientKey} />
+        );
       });
     })
     .reduce((arr, el) => {
       return arr.concat(el);
     }, []);
   if (transformedIngredients.length === 0) {
-    transformedIngredients = <p>Please start adding ingredients!</p>;
+    transformedIngredients = <p>Add Your Toppings</p>;
   }
 
   return (

@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Auxx from "../../hoc/Auxx";
 import BuildControls from "../../components/Hotdog/BuildControls/BuildControls";
 import Hotdog from "../../components/Hotdog/Hotdog";
+import Modal from "../../components/UI/Modal/Modal";
+import OrderSummary from "../../components/Hotdog/OrderSummary/OrderSummary";
 
 const INGREDIENT_PRICES = {
   ketchup: 0.2,
@@ -18,10 +20,10 @@ class HotdogBuilder extends Component {
       ketchup: 0,
       mustard: 0,
       mayonnaise: 0,
-      hotdogMeat: 1,
       cheese: 0,
     },
     totalPrice: 4,
+    purchasing: false,
   };
 
   addIngredientHandler = (type) => {
@@ -39,9 +41,6 @@ class HotdogBuilder extends Component {
 
   removeIngredientHandler = (type) => {
     const oldCount = this.state.ingredients[type];
-    // if (oldCount <= 0) {
-    //   return;
-    // }
     const updatedCount = oldCount - 1;
     const updatedIngredients = {
       ...this.state.ingredients,
@@ -53,9 +52,8 @@ class HotdogBuilder extends Component {
     this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
   };
 
-  disinfo = (type) => {
-    const oldCount = [...this.state.ingredients[type]];
-    console.log(oldCount);
+  purchaseHandler = () => {
+    this.setState({ purchasing: true });
   };
 
   render() {
@@ -70,12 +68,15 @@ class HotdogBuilder extends Component {
 
     return (
       <Auxx>
+        <Modal show={this.state.purchasing}>
+          <OrderSummary ingredients={this.state.ingredients} />
+        </Modal>
         <Hotdog ingredients={this.state.ingredients} />
         <BuildControls
           ingredientAdded={this.addIngredientHandler}
           ingredientRemoved={this.removeIngredientHandler}
-          purchasable={this.state.purchasable}
           price={this.state.totalPrice}
+          ordered={this.purchaseHandler}
           disabledLessInfo={disabledLessInfo}
           disabledExtraInfo={disabledExtraInfo}
         />

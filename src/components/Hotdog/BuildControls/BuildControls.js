@@ -24,6 +24,9 @@ const buildControls = (props) => (
         disabledExtra={props.disabledExtraInfo[ctrl.type]}
       />
     ))}
+    <button className={classes.OrderButton} onClick={props.ordered}>
+      ORDER NOW
+    </button>
   </div>
 );
 
