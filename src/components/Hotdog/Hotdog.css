@@ -1,10 +1,15 @@
 .Container {
-  height: 379px;
+  height: 367px;
   /* overflow: scroll; */
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
   padding: 10px;
+  background-color: rgba(199, 196, 196, 0.466);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  margin-top: 96px;
 }
 .Hotdog {
   width: 100%;

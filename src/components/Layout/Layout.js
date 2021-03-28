@@ -6,9 +6,11 @@ import SideDrawer from "../Navigation/SideDrawer/SideDrawer";
 
 const layout = (props) => (
   <Auxx>
-    <Toolbar />
-    <SideDrawer />
-    <main className={classes.Content}>{props.children}</main>
+    <div className={classes.Container}>
+      <Toolbar />
+      <SideDrawer />
+      <main className={classes.Content}>{props.children}</main>
+    </div>
   </Auxx>
 );
 

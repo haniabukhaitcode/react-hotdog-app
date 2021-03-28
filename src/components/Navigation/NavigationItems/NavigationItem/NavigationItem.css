@@ -41,7 +41,7 @@
   .NavigationItem a.active {
     margin-right: 2px;
     background-color: #da2c00;
-    border-bottom: 6px solid #dad735;
+    border-bottom: 2px solid #dad735;
     color: white;
   }
 }
