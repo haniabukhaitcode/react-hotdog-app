@@ -1,31 +1,49 @@
-import React from "react";
-import Auxx from "../../../hoc/Auxx";
+import React, { Component } from "react";
+
+import Auxx from "../../../hoc/Auxx/Auxx";
 import Button from "../../UI/Button/Button";
 
-const orderSummary = (props) => {
-  const ingredientSummary = Object.keys(props.ingredients).map((igkey) => {
-    return (
-      <li key={igkey}>
-        <span style={{ textTransform: "capitalize" }}>{igkey}:</span>
-        {props.ingredients[igkey]}
-      </li>
+class OrderSummary extends Component {
+  // This could be a functional component, doesn't have to be a class
+  componentWillUpdate() {
+    console.log("[OrderSummary] WillUpdate");
+  }
+
+  render() {
+    const ingredientSummary = Object.keys(this.props.ingredients).map(
+      (igKey) => {
+        return (
+          <li key={igKey}>
+            <span style={{ textTransform: "capitalize" }}>{igKey}</span>:{" "}
+            {this.props.ingredients[igKey]}
+          </li>
+        );
+      }
     );
-  });
 
-  return (
-    <Auxx>
-      <h3>Your Order</h3>
-      <p>Tasty HotDog with the following toppings:</p>
-      <ul>{ingredientSummary}</ul>
-      <p>Continue to checkout?</p>
-      <Button btnType="Danger" clicked={props.purchaseCancelled}>
-        Cancel
-      </Button>
-      <Button btnType="Success" clicked={props.purchaseContinued}>
-        Continue
-      </Button>
-    </Auxx>
-  );
-};
+    return (
+      <Auxx>
+        <h3>Your Order</h3>
+        <p>A delicious burger with the following ingredients:</p>
+        <ul>{ingredientSummary}</ul>
+        <p>
+          <strong>
+            Total Price: {parseFloat(this.props.price).toFixed(2)}
+          </strong>
+        </p>
+        <p>Continue to Checkout?</p>
+        <Button btnType="Danger" clicked={this.props.purchaseCancelled}>
+          CANCEL
+        </Button>
+        <Button btnType="Success" clicked={this.props.purchaseContinued}>
+          CONTINUE
+        </Button>
+      </Auxx>
+    );
+  }
+}
 
-export default orderSummary;
+export default OrderSummary;
+{
+  /* <p>Tasty HotDog with the following toppings:</p> */
+}

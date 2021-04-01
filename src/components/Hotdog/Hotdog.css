@@ -8,32 +8,54 @@
   background-color: rgba(199, 196, 196, 0.466);
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 5px;
   margin-top: 96px;
 }
 .Hotdog {
   width: 100%;
   margin: auto;
-  height: 500px;
+  height: 250px;
   /* overflow: scroll; */
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
-  padding: 10px;
 }
 .HotdogMeat {
   width: 100%;
   height: 20%;
   background: linear-gradient(#f13b2aca, #f13a2a);
-  margin: 2% auto;
-  padding-top: 8px;
+  padding-top: 12px;
+  padding-bottom: 8px;
   border-radius: 100px;
 }
+.ingredients {
+  padding: 2% 2% 2% 2%;
+  text-align: center;
+}
+.AddTopings {
+  margin-bottom: 25px;
+  padding: 2% 2% 2% 2%;
+}
 
-@media (min-width: 500px) and (min-height: 100px) {
+@media (min-width: 300px) and (min-height: 400px) {
   .Hotdog {
     width: 350px;
     height: 300px;
+  }
+  .ingredients {
+    padding: 2% 2% 2% 2%;
+    text-align: center;
+  }
+  .AddTopings {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 2%;
+    margin-bottom: 25px;
+  }
+  .Container {
+    height: 174px;
   }
 }
 
@@ -48,5 +70,17 @@
   .Hotdog {
     width: 700px;
     height: 600px;
+  }
+  .Container {
+    height: 367px;
+  }
+}
+@media (min-width: 1643px) and (min-height: 700px) {
+  .Hotdog {
+    width: 700px;
+    height: 600px;
+  }
+  .Container {
+    height: 367px;
   }
 }

@@ -15,7 +15,9 @@ const hotdog = (props) => {
       return arr.concat(el);
     }, []);
   if (transformedIngredients.length === 0) {
-    transformedIngredients = <p>Add Your Toppings</p>;
+    transformedIngredients = (
+      <p className={classes.AddTopings}>Add Your Toppings</p>
+    );
   }
 
   return (

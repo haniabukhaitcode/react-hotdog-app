@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-
-import Auxx from "../../hoc/Auxx";
+import axiosFile from "../../axios";
+import Auxx from "../../hoc/Auxx/Auxx";
 import BuildControls from "../../components/Hotdog/BuildControls/BuildControls";
 import Hotdog from "../../components/Hotdog/Hotdog";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Hotdog/OrderSummary/OrderSummary";
+import Spinner from "../../components/UI/Spinner/Spinner";
+import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 
 const INGREDIENT_PRICES = {
   ketchup: 0.2,
@@ -24,6 +26,7 @@ class HotdogBuilder extends Component {
     },
     totalPrice: 4,
     purchasing: false,
+    loading: false,
   };
 
   addIngredientHandler = (type) => {
@@ -59,12 +62,29 @@ class HotdogBuilder extends Component {
     this.setState({ purchasing: false });
   };
 
-  purchaseCancelHandler = () => {
-    this.setState({ purchasing: false });
-  };
   purchaseContinueHandler = () => {
-    alert("You Continue");
+    // alert("You Continue");
+    this.setState({ loading: true });
+    const order = {
+      ingredients: this.state.ingredients,
+      price: this.state.totalPrice,
+      customer: {
+        name: "omar",
+        address: {
+          street: "TestStreet 1",
+          zipCode: "41321",
+          country: "UAE",
+        },
+        email: "test@test.com",
+      },
+      deliveryMethod: "fastest",
+    };
+    axiosFile
+      .post("/orders.json", order)
+      .then((response) => this.setState({ loading: false, purchasing: false }))
+      .catch((error) => this.setState({ loading: false, purchasing: false }));
   };
+  // orderSummary
 
   render() {
     const disabledLessInfo = { ...this.state.ingredients };
@@ -76,19 +96,29 @@ class HotdogBuilder extends Component {
       disabledExtraInfo[i] = disabledExtraInfo[i] >= 2; //|| disableInfo[i] >= 2;
     }
 
+    let orderSummary = (
+      <OrderSummary
+        ingredients={this.state.ingredients}
+        price={this.state.totalPrice.toFixed(2)}
+        purchaseCancelled={this.purchaseCancelHandler}
+        purchaseContinued={this.purchaseContinueHandler}
+      />
+    );
+
+    if (this.state.loading) {
+      orderSummary = <Spinner />;
+    }
+
     return (
       <Auxx>
         <Modal
           show={this.state.purchasing}
           modalClosed={this.purchaseCancelHandler}
         >
-          <OrderSummary
-            ingredients={this.state.ingredients}
-            purchaseCancelled={this.purchaseCancelHandler}
-            purchaseContinued={this.purchaseContinueHandler}
-          />
+          {orderSummary}
         </Modal>
         <Hotdog ingredients={this.state.ingredients} />
+
         <BuildControls
           ingredientAdded={this.addIngredientHandler}
           ingredientRemoved={this.removeIngredientHandler}
@@ -102,4 +132,4 @@ class HotdogBuilder extends Component {
   }
 }
 
-export default HotdogBuilder;
+export default withErrorHandler(HotdogBuilder, axiosFile);

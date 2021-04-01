@@ -3,7 +3,6 @@
   justify-content: space-between;
   align-items: center;
   margin: 5px 0;
-  width: 25%;
 }
 
 .BuildControl button {
@@ -11,7 +10,7 @@
   font: inherit;
   padding: 5px;
   margin: 0 5px;
-  width: 100px;
+  width: 80px;
   border: 1px solid #dd3b13;
   border-radius: 10px;
   cursor: pointer;
@@ -34,7 +33,7 @@
 .Label {
   padding: 10px;
   font-weight: bold;
-  width: 150px;
+  width: 80px;
 }
 
 .BuildControl .Less {
