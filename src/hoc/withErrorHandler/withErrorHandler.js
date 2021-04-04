@@ -4,22 +4,28 @@ import Modal from "../../components/UI/Modal/Modal";
 import Auxx from "../Auxx/Auxx";
 
 const withErrorHandler = (WrappedComponent, axios) => {
+  //anonymous instance class it is
   return class extends Component {
     state = {
       error: null,
     };
 
     componentWillMount() {
-      axios.interceptors.request.use((req) => {
+      this.reqInterceptor = axios.interceptors.request.use((req) => {
         this.setState({ error: null });
         return req;
       });
-      axios.interceptors.response.use(
+      this.resInterceptor = axios.interceptors.response.use(
         (res) => res,
         (error) => {
           this.setState({ error: error });
         }
       );
+    }
+
+    componentWillUnmount() {
+      axios.interceptors.request.eject(this.reqInterceptor);
+      axios.interceptors.response.eject(this.resInterceptor);
     }
 
     errorConfirmedHandler = () => {

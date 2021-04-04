@@ -69,13 +69,13 @@ class HotdogBuilder extends Component {
       ingredients: this.state.ingredients,
       price: this.state.totalPrice,
       customer: {
-        name: "omar",
+        name: "Salwa",
         address: {
           street: "TestStreet 1",
-          zipCode: "41321",
+          zipCode: "Salwa",
           country: "UAE",
         },
-        email: "test@test.com",
+        email: "Salwa@Salwa.com",
       },
       deliveryMethod: "fastest",
     };
