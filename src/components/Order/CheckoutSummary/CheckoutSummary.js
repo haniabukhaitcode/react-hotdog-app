@@ -11,10 +11,10 @@ const CheckoutSummary = (props) => {
       <div style={{ width: "100%", margin: "auto" }}>
         <Hotdog ingredients={props.ingredients} />
       </div>
-      <Button btnType="Danger" clicked>
+      <Button btnType="Danger" clicked={props.checkoutCancelled}>
         Cancle
       </Button>
-      <Button btnType="Success" clicked>
+      <Button btnType="Success" clicked={props.checkoutContinued}>
         Continue
       </Button>
     </div>

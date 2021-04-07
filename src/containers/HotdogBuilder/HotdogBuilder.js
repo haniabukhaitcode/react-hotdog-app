@@ -29,6 +29,10 @@ class HotdogBuilder extends Component {
     loading: false,
   };
 
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   addIngredientHandler = (type) => {
     const oldCount = this.state.ingredients[type];
     const updatedCount = oldCount + 1;
@@ -63,29 +67,23 @@ class HotdogBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
-    // alert("You Continue");
-    this.setState({ loading: true });
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: "Salwa",
-        address: {
-          street: "TestStreet 1",
-          zipCode: "Salwa",
-          country: "UAE",
-        },
-        email: "Salwa@Salwa.com",
-      },
-      deliveryMethod: "fastest",
-    };
-    axiosFile
-      .post("/orders.json", order)
-      .then((response) => this.setState({ loading: false, purchasing: false }))
-      .catch((error) => this.setState({ loading: false, purchasing: false }));
+    const queryParams = [];
+    for (let i in this.state.ingredients) {
+      //property name and property value
+      queryParams.push(
+        encodeURIComponent(i) +
+          "=" +
+          encodeURIComponent(this.state.ingredients[i])
+      );
+    }
+    queryParams.push("price=" + this.state.totalPrice);
+    const queryString = queryParams.join("&");
+    this.props.history.push({
+      pathname: "/checkout",
+      search: "?" + queryString,
+    });
+    console.log(queryString);
   };
-  // orderSummary
-
   render() {
     const disabledLessInfo = { ...this.state.ingredients };
     for (let i in disabledLessInfo) {
