@@ -9,7 +9,7 @@ class Checkout extends Component {
   };
 
   componentWillMount() {
-    console.log("Checkout");
+    console.log("Checkout.js CWM");
     const query = new URLSearchParams(this.props.location.search);
     const ingredients = {};
     let price = 0;

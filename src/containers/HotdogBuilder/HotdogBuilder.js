@@ -30,7 +30,7 @@ class HotdogBuilder extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
+    console.log("HotdogBuilder.js componentDidMount: " + this.props);
   }
 
   addIngredientHandler = (type) => {
@@ -82,7 +82,7 @@ class HotdogBuilder extends Component {
       pathname: "/checkout",
       search: "?" + queryString,
     });
-    console.log(queryString);
+    console.log("HotdogBulder.js queryString:" + queryString);
   };
   render() {
     const disabledLessInfo = { ...this.state.ingredients };

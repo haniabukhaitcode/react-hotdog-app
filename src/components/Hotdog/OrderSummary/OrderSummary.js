@@ -24,7 +24,7 @@ class OrderSummary extends Component {
     return (
       <Auxx>
         <h3>Your Order</h3>
-        <p>A delicious hotdog with the following ingredients:</p>
+        <p>Tasty HotDog with the following toppings:</p>
         <ul>{ingredientSummary}</ul>
         <p>
           <strong>
@@ -44,6 +44,3 @@ class OrderSummary extends Component {
 }
 
 export default OrderSummary;
-{
-  /* <p>Tasty HotDog with the following toppings:</p> */
-}
