@@ -3,7 +3,6 @@ import classes from "./Hotdog.css";
 import HotdogIngredient from "./HotdogIngredient/HotdogIngredient";
 
 const hotdog = (props) => {
-  console.log(props);
   let transformedIngredients = Object.keys(props.ingredients)
     .map((ingredientKey) => {
       return [...Array(props.ingredients[ingredientKey])].map((_, i) => {
