@@ -4,6 +4,7 @@ import classes from "./ContactData.css";
 import axiosFile from "../../../axios";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
+
 class ContactData extends Component {
   state = {
     orderForm: {
@@ -106,6 +107,7 @@ class ContactData extends Component {
       price: this.props.price,
       orderData: formData,
     };
+
     axiosFile
       .post("/orders.json", order)
       .then((response) => {
@@ -117,23 +119,23 @@ class ContactData extends Component {
       });
   };
 
-  checkValidity(value, rules) {
+  checkValidity(value, validation) {
     let isValid = true;
 
-    if (!rules) {
+    if (!validation) {
       return true;
     }
 
-    if (rules.required) {
+    if (validation.required) {
       isValid = value.trim() !== "" && isValid;
     }
 
-    if (rules.minLength) {
-      isValid = value.length >= rules.minLength && isValid;
+    if (validation.minLength) {
+      isValid = value.length >= validation.minLength && isValid;
     }
 
-    if (rules.maxLength) {
-      isValid = value.length <= rules.maxLength && isValid;
+    if (validation.maxLength) {
+      isValid = value.length <= validation.maxLength && isValid;
     }
     return isValid;
   }
