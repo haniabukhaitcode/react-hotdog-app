@@ -6,7 +6,7 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 const navigationItems = () => (
   <ul className={classes.NavigationItems}>
     <NavigationItem link="/" exact>
-      Hotdog Builder
+      Make Your Hotdog
     </NavigationItem>
     <NavigationItem link="/orders">Orders</NavigationItem>
   </ul>

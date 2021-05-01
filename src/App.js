@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+
 import Layout from "./hoc/Layout/Layout";
 import HotdogBuilder from "./containers/HotdogBuilder/HotdogBuilder";
 import Checkout from "./containers/Checkout/Checkout";

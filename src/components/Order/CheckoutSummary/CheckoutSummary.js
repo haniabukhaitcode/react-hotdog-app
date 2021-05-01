@@ -4,21 +4,21 @@ import Hotdog from "../../Hotdog/Hotdog";
 import Button from "../../UI/Button/Button";
 import classes from "./CheckoutSummary.css";
 
-const CheckoutSummary = (props) => {
+const checkoutSummary = (props) => {
   return (
     <div className={classes.CheckoutSummary}>
-      <h1>We are confident it will taste good!!</h1>
+      <h1>We hope it tastes well!</h1>
       <div style={{ width: "100%", margin: "auto" }}>
         <Hotdog ingredients={props.ingredients} />
       </div>
       <Button btnType="Danger" clicked={props.checkoutCancelled}>
-        Cancle
+        CANCEL
       </Button>
       <Button btnType="Success" clicked={props.checkoutContinued}>
-        Continue
+        CONTINUE
       </Button>
     </div>
   );
 };
 
-export default CheckoutSummary;
+export default checkoutSummary;

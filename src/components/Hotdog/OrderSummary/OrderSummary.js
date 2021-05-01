@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Auxx from "../../../hoc/Auxx/Auxx";
+import Aux from "../../../hoc/Aux/Aux";
 import Button from "../../UI/Button/Button";
 
 class OrderSummary extends Component {
@@ -22,14 +22,12 @@ class OrderSummary extends Component {
     );
 
     return (
-      <Auxx>
+      <Aux>
         <h3>Your Order</h3>
-        <p>Tasty HotDog with the following toppings:</p>
+        <p>A delicious hotdog with the following ingredients:</p>
         <ul>{ingredientSummary}</ul>
         <p>
-          <strong>
-            Total Price: {parseFloat(this.props.price).toFixed(2)}
-          </strong>
+          <strong>Total Price: {this.props.price.toFixed(2)}</strong>
         </p>
         <p>Continue to Checkout?</p>
         <Button btnType="Danger" clicked={this.props.purchaseCancelled}>
@@ -38,7 +36,7 @@ class OrderSummary extends Component {
         <Button btnType="Success" clicked={this.props.purchaseContinued}>
           CONTINUE
         </Button>
-      </Auxx>
+      </Aux>
     );
   }
 }
